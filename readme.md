@@ -2,10 +2,10 @@
 AUI assignment, on top of Django
 
 ### Part 1:
-Handled in `assignment/apis`
+Handled in `assignment/apis` as API, also notice the model in `assignment/models.py`
 
 ### Part 2:
-Partially handled in `assignment/management/commands/enrich_tweets.py`
+Handled in `assignment/management/commands/enrich_tweets.py`
 Can we run using
 
 ```
@@ -13,7 +13,7 @@ Can we run using
 ```
 
 ### Part 3:
-I've drafted the following queries, was blocked in step 2 data insert
+I've drafted the following queries, was blocked in step 2 data insert, so couldn't verify data accuracy 
 
 1. Query count per club
 ```
@@ -21,6 +21,7 @@ SELECT club, count(DISTINCT tweet_id) as total_tweets FROM tweets
 WHERE club='Real Madrid' OR club = 'Barcelona'
 GROUP BY club;
 ```
+the can decide which club has higher `total_tweets`
 
 2. Total reactions per club, select top 3 clubs
 ```
