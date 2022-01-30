@@ -322,3 +322,4 @@ ENABLE_MAILING = os.environ.get('ENABLE_MAILING', 'True') == 'True'
 
 EMAIL_BACKEND = 'anymail.backends.mailgun.EmailBackend'
 
+HIVE_CONNECTION_STR = 'hive://localhost:10000/default'

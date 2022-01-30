@@ -37,8 +37,11 @@ class MongoModelMixin:
         # Workaround to get the "__in" working in other way
         # Put in mixin not in Model manager as this return List not QuerySet
         db = get_database_connection()
+        # documents = db[cls.objects.model._meta.db_table].find({
+        #     '_id': {'$in': [ObjectId(id) for id in ids]}
+        # })
         documents = db[cls.objects.model._meta.db_table].find({
-            '_id': {'$in': [ObjectId(id) for id in ids]}
+            'external_id': {'$in': [int(id) for id in ids]}
         })
         return [cls(**doc) for doc in documents]
 
@@ -64,7 +67,7 @@ class User(models.Model, MongoModelMixin):
 
     _id = models.ObjectIdField()
 
-    external_id = models.TextField()
+    external_id = models.IntegerField()
     external_id_str = models.TextField()
     name = models.TextField()
     screen_name = models.TextField()

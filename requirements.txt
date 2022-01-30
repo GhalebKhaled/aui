@@ -28,5 +28,11 @@ colour
 pymongo[srv]
 djongo
 
+
+##
 pandas==1.3.5
 pyarrow
+
+###
+pyhive[hive]
+SQLAlchemy
